@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+import os
 
 from embedding import read_sequences, compute_embeddings
 from tsne_visualization import visualize_tsne
@@ -10,10 +11,12 @@ def main():
     print(f"Using device: {device}")
 
     # 路径设置
-    fasta_file = "data/plasmids.fasta"           # FASTA文件路径
-    model_dir = "pretrained_model"               # 模型和分词器存放目录
-    output_embeddings = "output/embeddings.npy"  # 嵌入保存文件
-    output_tsne_plot = "output/tsne_plot.png"    # t-SNE可视化图保存文件
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+    # 这行获取的是 src/main.py 往上一层，也就是 plasmidgpt_project 目录
+    fasta_file = os.path.join(BASE_DIR, "data", "plasmids.fasta")             # FASTA文件路径
+    model_dir = os.path.join(BASE_DIR, "pretrained_model")                    # 模型和分词器存放目录
+    output_embeddings = os.path.join(BASE_DIR, "output", "embeddings.npy")    # 嵌入保存文件
+    output_tsne_plot = os.path.join(BASE_DIR, "output", "tsne_plot.png")      # t-SNE可视化图保存文件  
 
     # 1. 读取DNA序列
     print("Reading sequences...")
