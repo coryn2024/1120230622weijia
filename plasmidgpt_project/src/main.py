@@ -12,7 +12,6 @@ def main():
 
     # 路径设置
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
-    # 这行获取的是 src/main.py 往上一层，也就是 plasmidgpt_project 目录
     fasta_file = os.path.join(BASE_DIR, "data", "plasmids.fasta")             # FASTA文件路径
     model_dir = os.path.join(BASE_DIR, "pretrained_model")                    # 模型和分词器存放目录
     output_embeddings = os.path.join(BASE_DIR, "output", "embeddings.npy")    # 嵌入保存文件
