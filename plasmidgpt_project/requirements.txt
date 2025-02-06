@@ -1,0 +1,9 @@
+torch
+transformers
+pandas
+scikit-learn
+matplotlib
+seaborn
+biopython
+numpy
+PreTrainedTokenizerFast
